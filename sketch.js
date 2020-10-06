@@ -9,7 +9,7 @@ var tom, tom_runningImg;
 
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4;
 
-var ground, invisibleGround, bkgroundImg;
+var ground, ground1, invisibleGround, bkgroundImg;
 
 var restart;
 
@@ -45,11 +45,11 @@ jerry_caughtImg= loadImage("tom_caught_jerry.png");
   function setup() {
   createCanvas(windowWidth, windowHeight);
    
- jerry = createSprite(250,height-15,20,50);
+ jerry = createSprite(width/2,height-15,20,50);
  jerry.addAnimation("running", jerry_runningImg);
  jerry.scale=0.05;
     
- tom = createSprite(100,height-15,20,50);
+ tom = createSprite(width/2-150,height-15,20,50);
  tom.addAnimation("running", tom_runningImg);
  tom.scale=0.1;
     
@@ -57,10 +57,15 @@ invisibleGround = createSprite(width/2,height-15,width,15 );
   invisibleGround.visible = false;
     
    
-   ground = createSprite(width/2,height-600,400,20);
+   ground = createSprite(width/2,height/2,width,20);
   ground.addImage(bkgroundImg);
   ground.scale=2;
   ground.velocityX=-6;
+    
+    ground1 = createSprite(width*3/2,height/2,width,20);
+  ground1.addImage(bkgroundImg);
+  ground1.scale=2;
+  ground1.velocityX=-6;
     
   jerry_caught = createSprite(width/2,height/2-40, 50, 50);
   jerry_caught .addImage(jerry_caughtImg);
@@ -128,9 +133,9 @@ function draw() {
     
     
   
-     if (ground.x < 0){
-      ground.x = ground.width/2;
-      
+     if (ground.x < -width/2){
+      ground.x =width/2;
+      ground1.x=width*3/2;
     }
      jerry.collide(invisibleGround);
      tom.collide(invisibleGround);
