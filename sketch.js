@@ -45,13 +45,9 @@ jerry_caughtImg= loadImage("tom_caught_jerry.png");
   function setup() {
   createCanvas(windowWidth, windowHeight);
    
- jerry = createSprite(width/2,height-15,20,50);
- jerry.addAnimation("running", jerry_runningImg);
- jerry.scale=0.05;
+ 
     
- tom = createSprite(width/2-150,height-15,20,50);
- tom.addAnimation("running", tom_runningImg);
- tom.scale=0.1;
+ 
     
 invisibleGround = createSprite(width/2,height-15,width,15 );  
   invisibleGround.visible = false;
@@ -66,6 +62,14 @@ invisibleGround = createSprite(width/2,height-15,width,15 );
   ground1.addImage(bkgroundImg);
   ground1.scale=2;
   ground1.velocityX=-6;
+    
+    jerry = createSprite(width/2,height-15,20,50);
+ jerry.addAnimation("running", jerry_runningImg);
+ jerry.scale=0.05;
+    
+    tom = createSprite(width/2-150,height-15,20,50);
+ tom.addAnimation("running", tom_runningImg);
+ tom.scale=0.1;
     
   jerry_caught = createSprite(width/2,height/2-40, 50, 50);
   jerry_caught .addImage(jerry_caughtImg);
